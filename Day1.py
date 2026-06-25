@@ -45,11 +45,16 @@ Process transactions one by one. Stop if the balance becomes negative. Display t
 transactions = [5000,-2000,-3000,-4000]
 balance = 6000
 for i in transactions:
-    balance += i
-    if balance<i:
-        print("Insufficient balance")
-        break
-print(f"Final balance = {balance}")
+    balance = balance
+    if i>0:
+        balance += i
+    if i<0:
+        if balance>abs(i):
+            balance+=i
+        else:
+            print("Insufficient balance")
+            break
+print(f"Final Balance = {balance}")
 
 # 5. CRICKET TOURNAMENT ANALYSIS
 """
